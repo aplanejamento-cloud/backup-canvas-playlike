@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PLAYLIKE - Hollywood Glamour Design System
+   Colors: Black, Gold, Purple
+   All colors in HSL format
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Base colors - Hollywood Dark Theme */
+    --background: 0 0% 3%;
+    --foreground: 45 100% 90%;
+
+    /* Cards and surfaces */
+    --card: 0 0% 6%;
+    --card-foreground: 45 100% 90%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 45 100% 90%;
+
+    /* Primary - Royal Gold */
+    --primary: 45 100% 50%;
+    --primary-foreground: 0 0% 3%;
+
+    /* Secondary - Deep Purple */
+    --secondary: 270 60% 25%;
+    --secondary-foreground: 45 100% 90%;
+
+    /* Muted tones */
+    --muted: 0 0% 12%;
+    --muted-foreground: 45 30% 60%;
+
+    /* Accent - Purple Glow */
+    --accent: 280 80% 45%;
+    --accent-foreground: 45 100% 95%;
+
+    /* Destructive - Red for Bomba */
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - Green for positive actions */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 45 30% 20%;
+    --input: 0 0% 12%;
+    --ring: 45 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom PLAYLIKE colors */
+    --gold: 45 100% 50%;
+    --gold-light: 45 100% 65%;
+    --gold-dark: 45 100% 35%;
+    --purple: 270 60% 45%;
+    --purple-light: 280 80% 60%;
+    --purple-dark: 270 60% 25%;
+    --hollywood-black: 0 0% 3%;
+    --hollywood-black-light: 0 0% 8%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 45 100% 90%;
+    --sidebar-primary: 45 100% 50%;
+    --sidebar-primary-foreground: 0 0% 3%;
+    --sidebar-accent: 270 60% 30%;
+    --sidebar-accent-foreground: 45 100% 90%;
+    --sidebar-border: 45 30% 15%;
+    --sidebar-ring: 45 100% 50%;
+  }
+
+  /* Force dark mode always */
+  .dark,
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat antialiased;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--hollywood-black)) 0%,
+      hsl(var(--hollywood-black-light)) 50%,
+      hsl(var(--purple-dark) / 0.3) 100%
+    );
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  /* Gold glow effect */
+  .glow-gold {
+    text-shadow: 
+      0 0 10px hsl(var(--gold) / 0.8),
+      0 0 20px hsl(var(--gold) / 0.6),
+      0 0 30px hsl(var(--gold) / 0.4),
+      0 0 40px hsl(var(--gold) / 0.2);
+  }
+
+  .glow-gold-subtle {
+    text-shadow: 
+      0 0 5px hsl(var(--gold) / 0.6),
+      0 0 10px hsl(var(--gold) / 0.4);
+  }
+
+  /* Purple glow effect */
+  .glow-purple {
+    text-shadow: 
+      0 0 10px hsl(var(--purple) / 0.8),
+      0 0 20px hsl(var(--purple) / 0.6),
+      0 0 30px hsl(var(--purple) / 0.4);
+  }
+
+  /* Box shadow glows */
+  .shadow-gold {
+    box-shadow: 
+      0 0 15px hsl(var(--gold) / 0.4),
+      0 0 30px hsl(var(--gold) / 0.2);
+  }
+
+  .shadow-purple {
+    box-shadow: 
+      0 0 15px hsl(var(--purple) / 0.4),
+      0 0 30px hsl(var(--purple) / 0.2);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-gold {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gold-dark)) 0%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold-light)) 100%
+    );
+  }
+
+  .bg-gradient-purple {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--purple-dark)) 0%,
+      hsl(var(--purple)) 50%,
+      hsl(var(--purple-light)) 100%
+    );
+  }
+
+  .bg-gradient-hollywood {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--hollywood-black)) 0%,
+      hsl(var(--purple-dark) / 0.3) 50%,
+      hsl(var(--hollywood-black)) 100%
+    );
+  }
+
+  /* Border gradients */
+  .border-gradient-gold {
+    border: 2px solid transparent;
+    background: 
+      linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+      linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-dark))) border-box;
+  }
+
+  /* Animations */
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-gold {
+    animation: pulse-gold 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes pulse-gold {
+    0%, 100% {
+      box-shadow: 
+        0 0 15px hsl(var(--gold) / 0.4),
+        0 0 30px hsl(var(--gold) / 0.2);
+    }
+    50% {
+      box-shadow: 
+        0 0 25px hsl(var(--gold) / 0.6),
+        0 0 50px hsl(var(--gold) / 0.3);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
+
+/* Font families */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 2px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 2px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
