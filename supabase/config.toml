@@ -1,0 +1,34 @@
+project_id = "ntnigpcdlwzadpvsihcy"
+
+[functions.check-email]
+verify_jwt = false
+
+[functions.cleanup-expired-posts]
+verify_jwt = false
+
+[functions.cleanup-ghost-users]
+verify_jwt = false
+
+[functions.daily-report]
+verify_jwt = false
+
+[functions.delete-account]
+verify_jwt = false
+
+[functions.bot-post]
+verify_jwt = false
+
+[functions.bot-visual-likes]
+verify_jwt = false
+
+[functions.bot-interact]
+verify_jwt = false
+
+[functions.bot-foto]
+verify_jwt = false
+
+[functions.bot-video]
+verify_jwt = false
+
+[functions.verify-ticket]
+verify_jwt = false
